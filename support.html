@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — UltraWide Pro</title>
+<meta name="description" content="Get help with UltraWide Pro. FAQ, keyboard shortcuts, and contact info.">
+<link rel="icon" type="image/png" href="icons/icon48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:      #f5f4f4;
+    --ink:     #1a1a2e;
+    --muted:   #5a5670;
+    --card:    #ffffff;
+    --line:    #e0dce8;
+    --brand:   #F5A623;
+    --brand-2: #D4831A;
+    --radius:  18px;
+    --shadow:  0 18px 40px rgba(30,20,5,.10);
+  }
+
+  body {
+    font-family: 'Poppins', 'Segoe UI', Trebuchet MS, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(ellipse 60% 40% at 0% 0%, rgba(245,166,35,.14) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 35% at 100% 10%, rgba(212,131,26,.10) 0%, transparent 65%);
+    background-attachment: fixed;
+  }
+
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { width: min(1100px, 92vw); margin: 0 auto; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,244,244,.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between; padding: 12px 0;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 16px; color: var(--ink); text-decoration: none;
+  }
+  .nav-logo img { width: 32px; height: 32px; }
+  .nav-logo span { color: var(--brand); }
+  .nav-links { display: flex; align-items: center; gap: 20px; font-size: 13px; font-weight: 600; }
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--ink); text-decoration: none; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+    color: #fff !important; border-radius: 999px; padding: 9px 18px;
+    font-weight: 700; font-size: 13px; transition: filter .2s, transform .15s;
+    text-decoration: none !important;
+  }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+  .page-header { padding: 60px 0 40px; }
+  .btn-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--brand); font-size: 13px; font-weight: 600;
+    margin-bottom: 20px; text-decoration: none;
+  }
+  .btn-back:hover { text-decoration: underline; }
+  .page-header h1 {
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 800; letter-spacing: -.02em; line-height: 1.15; margin-bottom: 8px;
+  }
+  .page-header .subtitle { font-size: 14px; color: var(--muted); }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  /* Shortcuts table */
+  .shortcuts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .shortcuts-table thead th {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    text-align: left;
+    padding: 0 0 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .shortcuts-table tbody tr {
+    border-bottom: 1px solid var(--line);
+  }
+  .shortcuts-table tbody tr:last-child { border-bottom: none; }
+  .shortcuts-table td {
+    padding: 12px 0;
+    color: var(--muted);
+    vertical-align: middle;
+  }
+  .shortcuts-table td:first-child {
+    width: 180px;
+  }
+  kbd {
+    background: #f0ede8;
+    border: 1px solid #d8d3cc;
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    padding: 2px 7px;
+    font-family: 'Cascadia Code', Consolas, 'SF Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item { border-bottom: 1px solid var(--line); padding: 18px 0; }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-item dt {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    cursor: default;
+  }
+  .faq-item dd {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .faq-item dd a { font-weight: 600; }
+
+  /* Modes reference */
+  .modes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .modes-table thead th {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--muted);
+    text-align: left; padding: 0 0 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .modes-table tbody tr { border-bottom: 1px solid var(--line); }
+  .modes-table tbody tr:last-child { border-bottom: none; }
+  .modes-table td { padding: 12px 0; color: var(--muted); vertical-align: top; line-height: 1.6; }
+  .modes-table td:first-child { width: 140px; }
+  .mode-tag {
+    display: inline-block;
+    background: rgba(245,166,35,.12);
+    color: var(--brand-2);
+    border: 1px solid rgba(245,166,35,.3);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+
+  /* Contact card */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .contact-item {
+    background: rgba(245,166,35,.06);
+    border: 1px solid rgba(245,166,35,.2);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+  .contact-item h3 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .contact-item p  { font-size: 13px; color: var(--muted); }
+  .contact-item a  { font-weight: 600; }
+
+  footer {
+    border-top: 1px solid var(--line); padding: 32px 0; margin-top: 40px;
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted);
+  }
+  .footer-left { display: flex; flex-direction: column; gap: 4px; }
+  .footer-right { display: flex; gap: 20px; }
+  .footer-right a { color: var(--muted); font-weight: 600; }
+  .footer-right a:hover { color: var(--brand); text-decoration: none; }
+
+  @media (max-width: 700px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .card { padding: 24px 20px; }
+  }
+  @media (max-width: 620px) {
+    .nav-links .btn-ghost { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="icons/icon48.png" alt="UltraWide Pro">
+        UltraWide <span>Pro</span>
+      </a>
+      <div class="nav-links">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="release-notes.html">Release Notes</a>
+        <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener" class="btn-primary">Add to Chrome</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-header">
+    <a href="index.html" class="btn-back">← Back to Home</a>
+    <h1>Support</h1>
+    <p class="subtitle">Frequently asked questions, keyboard shortcuts, and contact info</p>
+  </div>
+
+  <!-- Keyboard Shortcuts -->
+  <div class="card">
+    <h2>Keyboard Shortcuts</h2>
+    <table class="shortcuts-table">
+      <thead>
+        <tr>
+          <th>Shortcut</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><kbd>Alt</kbd> + <kbd>C</kbd></td>
+          <td>Cycle through active modes (configurable in the popup)</td>
+        </tr>
+        <tr>
+          <td><kbd>Alt</kbd> + <kbd>↑</kbd></td>
+          <td>Zoom in by 5%</td>
+        </tr>
+        <tr>
+          <td><kbd>Alt</kbd> + <kbd>↓</kbd></td>
+          <td>Zoom out by 5%</td>
+        </tr>
+        <tr>
+          <td><kbd>Alt</kbd> + <kbd>0</kbd></td>
+          <td>Reset mode to Off and zoom to 100%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px; font-size:13px; color:var(--muted);">Shortcuts are global (work without the popup open) and active on any tab with a video. On Mac, <kbd>Alt</kbd> is the <kbd>Option</kbd> key.</p>
+  </div>
+
+  <!-- Modes Reference -->
+  <div class="card">
+    <h2>Modes Reference</h2>
+    <table class="modes-table">
+      <thead>
+        <tr>
+          <th>Mode</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="mode-tag">Off</span></td>
+          <td>No transform applied. Video plays at its native size — black bars may be visible on ultrawide displays.</td>
+        </tr>
+        <tr>
+          <td><span class="mode-tag">Fill</span></td>
+          <td>Horizontally stretches the video to fill your monitor's full width. Best for content where slight distortion is acceptable.</td>
+        </tr>
+        <tr>
+          <td><span class="mode-tag">21:9 Crop</span></td>
+          <td>Crops the video to a 21:9 cinematic widescreen ratio. Removes black bars on standard 16:9 content viewed on 21:9 monitors.</td>
+        </tr>
+        <tr>
+          <td><span class="mode-tag">32:9 Crop</span></td>
+          <td>Crops the video to a 32:9 super-ultrawide ratio. For 49-inch super-ultrawide displays.</td>
+        </tr>
+        <tr>
+          <td><span class="mode-tag">Auto</span></td>
+          <td>Reads the video's actual native aspect ratio and scales it to fill your ultrawide monitor. Most accurate mode for mixed content.</td>
+        </tr>
+        <tr>
+          <td><span class="mode-tag">Zoom</span></td>
+          <td>Custom zoom level from 30% to 300%. Zooms both X and Y axes uniformly. Use the slider, ± buttons, or <kbd>Alt+↑</kbd>/<kbd>↓</kbd>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card">
+    <h2>Frequently Asked Questions</h2>
+    <dl class="faq-list">
+      <div class="faq-item">
+        <dt>The extension isn't doing anything on this site — why?</dt>
+        <dd>The extension requires an HTML5 <code>&lt;video&gt;</code> element on the page. Some streaming sites (older Flash-based players, DRM-protected iframes, or desktop app wrappers like Spotify) don't expose a standard video element. The green dot in the popup will light up when a compatible video is found.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>The video resets to normal after I skip or change quality — how do I prevent this?</dt>
+        <dd>The extension uses a MutationObserver to re-apply transforms when the DOM changes. On some sites the player swaps the <code>&lt;video&gt;</code> element entirely during quality changes. This is a known limitation. Toggling the mode off and on again will re-apply the transform.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Will this work on Netflix or Disney+?</dt>
+        <dd>Yes, both sites use standard HTML5 video elements. Note that DRM content may have additional restrictions. If the green dot shows a video is detected, the modes will apply.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>What's the difference between Fill and Auto Force Aspect?</dt>
+        <dd><strong>Fill</strong> stretches the video horizontally to match your exact monitor width — it only scales the X axis. <strong>Auto Force Aspect</strong> reads the video's native ratio first, then calculates the minimum scale needed to fill your monitor without distortion — it may scale X or Y depending on the content.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Can I configure which modes cycle with Alt+C?</dt>
+        <dd>Yes. At the bottom of the popup, you'll find the "Cycle modes" section. Click any chip to toggle a mode in or out of the cycle. At least two modes must remain active.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Does this extension collect any of my data?</dt>
+        <dd>No. See the <a href="privacy.html">Privacy Policy</a> for full details. Your preferences are stored locally via Chrome's built-in sync storage and never sent to any server.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>The keyboard shortcuts conflict with another extension — can I change them?</dt>
+        <dd>Yes. Open <strong>chrome://extensions/shortcuts</strong> in your browser and reassign the UltraWide Pro commands to any combination you prefer.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>I found a bug or have a feature request — where do I report it?</dt>
+        <dd>Email <a href="mailto:russel.sese@batchee.com">russel.sese@batchee.com</a> or reach out via <a href="https://www.linkedin.com/in/russelsese/" target="_blank" rel="noopener">LinkedIn</a>. Include the site URL, your monitor resolution, and which mode was active.</dd>
+      </div>
+    </dl>
+  </div>
+
+  <!-- Contact -->
+  <div class="card">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <h3>Email</h3>
+        <p><a href="mailto:russel.sese@batchee.com">russel.sese@batchee.com</a></p>
+      </div>
+      <div class="contact-item">
+        <h3>LinkedIn</h3>
+        <p><a href="https://www.linkedin.com/in/russelsese/" target="_blank" rel="noopener">linkedin.com/in/russelsese</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <strong>UltraWide Pro</strong>
+        <span>Developed by <a href="https://www.linkedin.com/in/russelsese/" target="_blank" rel="noopener">Russel Sese</a></span>
+        <span><a href="mailto:russel.sese@batchee.com">russel.sese@batchee.com</a></span>
+      </div>
+      <div class="footer-right">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="release-notes.html">Release Notes</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

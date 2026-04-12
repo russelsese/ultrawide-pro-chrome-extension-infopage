@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Release Notes — UltraWide Pro</title>
+<meta name="description" content="UltraWide Pro version history and release notes.">
+<link rel="icon" type="image/png" href="icons/icon48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:      #f5f4f4;
+    --ink:     #1a1a2e;
+    --muted:   #5a5670;
+    --card:    #ffffff;
+    --line:    #e0dce8;
+    --brand:   #F5A623;
+    --brand-2: #D4831A;
+    --radius:  18px;
+    --shadow:  0 18px 40px rgba(30,20,5,.10);
+  }
+
+  body {
+    font-family: 'Poppins', 'Segoe UI', Trebuchet MS, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(ellipse 60% 40% at 0% 0%, rgba(245,166,35,.14) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 35% at 100% 10%, rgba(212,131,26,.10) 0%, transparent 65%);
+    background-attachment: fixed;
+  }
+
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { width: min(1100px, 92vw); margin: 0 auto; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,244,244,.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between; padding: 12px 0;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 16px; color: var(--ink); text-decoration: none;
+  }
+  .nav-logo img { width: 32px; height: 32px; }
+  .nav-logo span { color: var(--brand); }
+  .nav-links { display: flex; align-items: center; gap: 20px; font-size: 13px; font-weight: 600; }
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--ink); text-decoration: none; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+    color: #fff !important; border-radius: 999px; padding: 9px 18px;
+    font-weight: 700; font-size: 13px; transition: filter .2s, transform .15s;
+    text-decoration: none !important;
+  }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+  .page-header { padding: 60px 0 40px; }
+  .btn-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--brand); font-size: 13px; font-weight: 600;
+    margin-bottom: 20px; text-decoration: none;
+  }
+  .btn-back:hover { text-decoration: underline; }
+  .page-header h1 {
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 800; letter-spacing: -.02em; line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .page-header .subtitle { font-size: 14px; color: var(--muted); }
+
+  /* Release entries */
+  .release {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .release-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .version-badge {
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 5px 12px;
+    letter-spacing: .03em;
+    box-shadow: 0 4px 12px rgba(245,166,35,.30);
+    flex-shrink: 0;
+  }
+  .release-date {
+    font-size: 12.5px;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .release-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .release-body {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .change-group h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: var(--brand);
+    margin-bottom: 10px;
+  }
+  .change-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .change-list li {
+    font-size: 13.5px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .change-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--brand);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
+    top: 2px;
+  }
+  kbd {
+    background: #f0ede8;
+    border: 1px solid #d8d3cc;
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-family: 'Cascadia Code', Consolas, 'SF Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink);
+  }
+
+  footer {
+    border-top: 1px solid var(--line); padding: 32px 0; margin-top: 40px;
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted);
+  }
+  .footer-left { display: flex; flex-direction: column; gap: 4px; }
+  .footer-right { display: flex; gap: 20px; }
+  .footer-right a { color: var(--muted); font-weight: 600; }
+  .footer-right a:hover { color: var(--brand); text-decoration: none; }
+
+  @media (max-width: 620px) {
+    .release-header { gap: 10px; }
+    .release-body { padding: 20px; }
+    .nav-links .btn-ghost { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="icons/icon48.png" alt="UltraWide Pro">
+        UltraWide <span>Pro</span>
+      </a>
+      <div class="nav-links">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="release-notes.html">Release Notes</a>
+        <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener" class="btn-primary">Add to Chrome</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-header">
+    <a href="index.html" class="btn-back">← Back to Home</a>
+    <h1>Release Notes</h1>
+    <p class="subtitle">Version history for UltraWide Pro</p>
+  </div>
+
+  <!-- v1.0.0 -->
+  <div class="release">
+    <div class="release-header">
+      <span class="version-badge">v1.0.0</span>
+      <span class="release-date">April 12, 2025</span>
+      <span class="release-title">Initial Release</span>
+    </div>
+    <div class="release-body">
+      <div class="change-group">
+        <h3>New Features</h3>
+        <ul class="change-list">
+          <li><strong>6 aspect ratio modes:</strong> Off, Fill (Stretch), 21:9 Crop, 32:9 Crop, Custom Zoom, and Auto Force Aspect</li>
+          <li><strong>Precision zoom slider</strong> from 30% to 300% with ± step buttons</li>
+          <li><strong>Auto Force Aspect</strong> mode that reads the video's native ratio and scales to fill the ultrawide display</li>
+          <li><strong>Keyboard shortcuts:</strong> <kbd>Alt+C</kbd> to cycle modes, <kbd>Alt+↑</kbd>/<kbd>Alt+↓</kbd> to adjust zoom, <kbd>Alt+0</kbd> to reset</li>
+          <li><strong>Configurable mode cycle</strong> — choose which modes appear when pressing <kbd>Alt+C</kbd></li>
+          <li><strong>Fullscreen-only mode</strong> — apply transforms only when the video is in fullscreen</li>
+          <li><strong>Live video detection bar</strong> showing the native aspect ratio of the detected video</li>
+          <li><strong>On-screen display (OSD)</strong> that briefly shows the active mode when changed via keyboard</li>
+          <li><strong>Badge indicator</strong> on the toolbar icon showing the current mode name</li>
+          <li><strong>SPA navigation support</strong> — survives URL changes on YouTube, Netflix, and other single-page apps</li>
+          <li><strong>Settings persistence</strong> via chrome.storage.sync — your preferences follow you across devices</li>
+          <li><strong>Correct transform-origin</strong> calculation to prevent the bottom-right corner bug common in other extensions</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <h3>Technical Notes</h3>
+        <ul class="change-list">
+          <li>Built as a Manifest V3 extension with a service worker background script</li>
+          <li>Zero external dependencies at runtime — pure JavaScript, no libraries</li>
+          <li>Content script uses MutationObserver to detect dynamically injected videos</li>
+          <li>Transform uses <code>scaleX</code>/<code>scaleY</code> with <code>transform-origin: center center</code> for pixel-perfect output</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <strong>UltraWide Pro</strong>
+        <span>Developed by <a href="https://www.linkedin.com/in/russelsese/" target="_blank" rel="noopener">Russel Sese</a></span>
+        <span><a href="mailto:russel.sese@batchee.com">russel.sese@batchee.com</a></span>
+      </div>
+      <div class="footer-right">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="release-notes.html">Release Notes</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

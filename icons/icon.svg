@@ -1,0 +1,30 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: warm amber cinema gradient, rounded square -->
+  <rect width="128" height="128" rx="24" fill="url(#bg)"/>
+
+  <!-- Ultrawide frame brackets — wider than tall, like a 21:9 screen -->
+  <!-- Top-left -->
+  <path d="M18 50V26C18 22.686 20.686 20 24 20H50"
+        stroke="white" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Top-right -->
+  <path d="M110 50V26C110 22.686 107.314 20 104 20H78"
+        stroke="white" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bottom-left -->
+  <path d="M18 78V102C18 105.314 20.686 108 24 108H50"
+        stroke="white" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bottom-right -->
+  <path d="M110 78V102C110 105.314 107.314 108 104 108H78"
+        stroke="white" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Center horizontal expand arrow — represents removing black bars -->
+  <path d="M44 64H84" stroke="white" stroke-width="8" stroke-linecap="round" opacity="0.55"/>
+  <path d="M76 55L85 64L76 73" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+  <path d="M52 55L43 64L52 73" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F5A623"/>
+      <stop offset="100%" stop-color="#D4831A"/>
+    </linearGradient>
+  </defs>
+</svg>

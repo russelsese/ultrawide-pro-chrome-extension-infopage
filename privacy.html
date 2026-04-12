@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — UltraWide Pro</title>
+<meta name="description" content="UltraWide Pro privacy policy. No data collection, no tracking, no servers.">
+<link rel="icon" type="image/png" href="icons/icon48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:      #f5f4f4;
+    --ink:     #1a1a2e;
+    --muted:   #5a5670;
+    --card:    #ffffff;
+    --line:    #e0dce8;
+    --brand:   #F5A623;
+    --brand-2: #D4831A;
+    --radius:  18px;
+    --shadow:  0 18px 40px rgba(30,20,5,.10);
+  }
+
+  body {
+    font-family: 'Poppins', 'Segoe UI', Trebuchet MS, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(ellipse 60% 40% at 0% 0%, rgba(245,166,35,.14) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 35% at 100% 10%, rgba(212,131,26,.10) 0%, transparent 65%);
+    background-attachment: fixed;
+  }
+
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { width: min(1100px, 92vw); margin: 0 auto; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,244,244,.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 16px; color: var(--ink); text-decoration: none;
+  }
+  .nav-logo img { width: 32px; height: 32px; }
+  .nav-logo span { color: var(--brand); }
+  .nav-links { display: flex; align-items: center; gap: 20px; font-size: 13px; font-weight: 600; }
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--ink); text-decoration: none; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+    color: #fff !important; border-radius: 999px; padding: 9px 18px;
+    font-weight: 700; font-size: 13px;
+    transition: filter .2s, transform .15s; text-decoration: none !important;
+  }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+  .page-header {
+    padding: 60px 0 40px;
+  }
+  .btn-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--brand); font-size: 13px; font-weight: 600;
+    margin-bottom: 20px; text-decoration: none;
+  }
+  .btn-back:hover { text-decoration: underline; }
+  .page-header h1 {
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 800; letter-spacing: -.02em; line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .page-header .effective {
+    font-size: 13px; color: var(--muted);
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+
+  /* Privacy highlights */
+  .ph-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .ph-card {
+    background: rgba(245,166,35,.08);
+    border: 1px solid rgba(245,166,35,.25);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .ph-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 6px;
+  }
+  .ph-card p {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .card h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .card p, .card li {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+  .card ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  .card a { color: var(--brand); font-weight: 600; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 0;
+    margin-top: 40px;
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted);
+  }
+  .footer-left { display: flex; flex-direction: column; gap: 4px; }
+  .footer-right { display: flex; gap: 20px; }
+  .footer-right a { color: var(--muted); font-weight: 600; }
+  .footer-right a:hover { color: var(--brand); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .ph-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 620px) {
+    .ph-grid { grid-template-columns: 1fr; }
+    .card { padding: 24px 20px; }
+    .nav-links .btn-ghost { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="icons/icon48.png" alt="UltraWide Pro">
+        UltraWide <span>Pro</span>
+      </a>
+      <div class="nav-links">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="release-notes.html">Release Notes</a>
+        <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener" class="btn-primary">Add to Chrome</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-header">
+    <a href="index.html" class="btn-back">← Back to Home</a>
+    <h1>Privacy Policy</h1>
+    <p class="effective">Effective date: April 12, 2025</p>
+  </div>
+
+  <!-- Highlights -->
+  <div class="ph-grid">
+    <div class="ph-card">
+      <h3>Zero</h3>
+      <p>Data collected about you or your browsing</p>
+    </div>
+    <div class="ph-card">
+      <h3>Zero</h3>
+      <p>Remote servers or third-party services used</p>
+    </div>
+    <div class="ph-card">
+      <h3>Zero</h3>
+      <p>Analytics, tracking pixels, or telemetry</p>
+    </div>
+    <div class="ph-card">
+      <h3>Local</h3>
+      <p>Settings stored only via Chrome's built-in sync storage</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Overview</h2>
+    <p>UltraWide Pro ("the Extension") is a Chrome browser extension that applies CSS transforms to HTML5 video elements. This policy explains what data the Extension does and does not collect.</p>
+    <p>The short version: <strong>the Extension collects no personal data whatsoever.</strong></p>
+  </div>
+
+  <div class="card">
+    <h2>What We Do Not Collect</h2>
+    <ul>
+      <li>No browsing history or URLs you visit</li>
+      <li>No video content, titles, or metadata</li>
+      <li>No personal identifiers (name, email, IP address, device ID)</li>
+      <li>No usage analytics, events, or telemetry</li>
+      <li>No crash reports sent to any server</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>What the Extension Does Store</h2>
+    <p>Your preferences (active mode, zoom level, fullscreen-only toggle, and which modes are in the cycle) are stored using <strong>chrome.storage.sync</strong>. This is Chrome's built-in storage API and syncs across your signed-in Chrome devices. No data is sent to any server operated by the developer.</p>
+    <p>You can clear all stored preferences at any time by removing and reinstalling the extension, or by using Chrome's "Clear browsing data" feature to clear extension storage.</p>
+  </div>
+
+  <div class="card">
+    <h2>Permissions Explained</h2>
+    <ul>
+      <li><strong>storage</strong> — to save your mode and zoom preferences locally</li>
+      <li><strong>activeTab</strong> — to apply transforms to the video on the currently active tab</li>
+      <li><strong>scripting</strong> — to relay keyboard commands from the background worker to the content script</li>
+      <li><strong>host_permissions (&lt;all_urls&gt;)</strong> — required to inject the content script on any website that may contain a video player</li>
+    </ul>
+    <p>These permissions are used solely for the Extension's core functionality. None of them are used to collect or transmit data.</p>
+  </div>
+
+  <div class="card">
+    <h2>Third Parties</h2>
+    <p>The Extension does not use any third-party SDKs, analytics libraries, advertising networks, or remote APIs. There are no trackers, no fonts loaded from external CDNs at runtime, and no outbound network requests from the extension itself.</p>
+  </div>
+
+  <div class="card">
+    <h2>Children's Privacy</h2>
+    <p>The Extension does not target or knowingly interact with children. No personal data from any user, regardless of age, is collected.</p>
+  </div>
+
+  <div class="card">
+    <h2>Changes to This Policy</h2>
+    <p>If this policy changes materially, the effective date above will be updated and a new version will be noted in the <a href="release-notes.html">Release Notes</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <p>Questions about this policy? Reach out at <a href="mailto:russel.sese@batchee.com">russel.sese@batchee.com</a> or via <a href="https://www.linkedin.com/in/russelsese/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <strong>UltraWide Pro</strong>
+        <span>Developed by <a href="https://www.linkedin.com/in/russelsese/" target="_blank" rel="noopener">Russel Sese</a></span>
+        <span><a href="mailto:russel.sese@batchee.com">russel.sese@batchee.com</a></span>
+      </div>
+      <div class="footer-right">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="release-notes.html">Release Notes</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
